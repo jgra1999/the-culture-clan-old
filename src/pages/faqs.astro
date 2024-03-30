@@ -1,0 +1,290 @@
+---
+import Layout from '../layouts/Layout.astro'
+import mockupSizes from '../assets/imagen-medida-franela.png'
+import { Image } from 'astro:assets'
+
+const table = {
+	thead: ['MEDIDA (centímetro)', 'S', 'M', 'L', 'XL'],
+	hombros: ['57', , '59', '60', '66'],
+	ancho: ['54', , '55', '60', '63'],
+	mangas: ['23', , '24', '26', '28'],
+	largo: ['69', , '72', '74', '76']
+}
+---
+
+<Layout title='FAQs'>
+	<main class='h-screen pt-44 mb-20 px-10'>
+		<h2 class='text-3xl md:text-5xl font-bold'>Preguntas frecuentes</h2>
+		<section class='grid grid-cols-1 md:grid-cols-2 gap-4 mt-10'>
+			<div class='space-y-4'>
+				<details
+					class='bg-darkGray p-4 space-y-2 rounded-md border border-mediumGray'
+				>
+					<summary class='text-xl'>¿Qué tipo de tela usan las franelas?</summary>
+					<p class='text-grayText'>
+						Las franelas son de 100% algodón, hay dos tipos de franelas: una es
+						franela de tela de algodón suavizado de 150 grms y cuello redondo; la
+						otra franela es tela pesada de algodón, de 200grms, esta tiene cuello
+						rib. Ambas franelas son de manga 3/4 y tienen un diseño moderno y cómodo.
+					</p>
+				</details>
+
+				<details
+					class='bg-darkGray p-4 space-y-2 rounded-md border border-mediumGray'
+				>
+					<summary class='text-xl'>¿Cuál es la gama de colores?</summary>
+					<p class='text-grayText'>
+						A parte de los clásicos colores blanco y negro, tenemos otros colores
+						para nuestras franelas básicas, a continuación te compartiremos nuestra
+						gamas de colores, si deseas ver un ejemplo del color y las franles, haz
+						click sobre el nombre de los colores.
+					</p>
+					<div class='bg-white w-full rounded-md p-4'>
+						<ul class='flex justify-between flex-wrap gap-y-2'>
+							<div class='space-y-2'>
+								<li class='flex items-center gap-x-1'>
+									<div class='bg-[#000031] w-5 h-3 rounded'></div>
+									<a href='#' class='text-grayText hover:text-darkGray font-bold'
+										>Azul Navy</a
+									>
+								</li>
+								<li class='flex items-center gap-x-1'>
+									<div class='bg-[#680519] w-5 h-3 rounded'></div>
+									<a href='#' class='text-grayText hover:text-darkGray font-bold'
+										>Vinotinto</a
+									>
+								</li>
+								<li class='flex items-center gap-x-1'>
+									<div class='bg-[#fefbb8] w-5 h-3 rounded'></div>
+									<a href='#' class='text-grayText hover:text-darkGray font-bold'
+										>Crema</a
+									>
+								</li>
+							</div>
+							<div class='space-y-2'>
+								<li class='flex items-center gap-x-1'>
+									<div class='bg-[#fe6601] w-5 h-3 rounded'></div>
+									<a href='#' class='text-grayText hover:text-darkGray font-bold'
+										>Naranja</a
+									>
+								</li>
+								<li class='flex items-center gap-x-1'>
+									<div class='bg-[#333520] w-5 h-3 rounded'></div>
+									<a href='#' class='text-grayText hover:text-darkGray font-bold'
+										>Verde Militar</a
+									>
+								</li>
+								<li class='flex items-center gap-x-1'>
+									<div class='bg-[#eb2326] w-5 h-3 rounded'></div>
+									<a href='#' class='text-grayText hover:text-darkGray font-bold'
+										>Rojo</a
+									>
+								</li>
+							</div>
+							<div class='space-y-2'>
+								<li class='flex items-center gap-x-1'>
+									<div class='bg-[#05503b] w-5 h-3 rounded'></div>
+									<a href='#' class='text-grayText hover:text-darkGray font-bold'
+										>Verde Botella</a
+									>
+								</li>
+								<li class='flex items-center gap-x-1'>
+									<div class='bg-[#ba0b10] w-5 h-3 rounded'></div>
+									<a href='#' class='text-grayText hover:text-darkGray font-bold'
+										>Rojo Malboro</a
+									>
+								</li>
+								<li class='flex items-center gap-x-1'>
+									<div class='bg-[#6e8d6d] w-5 h-3 rounded'></div>
+									<a href='#' class='text-grayText hover:text-darkGray font-bold'
+										>Verde Invierno</a
+									>
+								</li>
+							</div>
+							<div class='space-y-2'>
+								<li class='flex items-center gap-x-1'>
+									<div class='bg-[#dbbe94] w-5 h-3 rounded'></div>
+									<a href='#' class='text-grayText hover:text-darkGray font-bold'
+										>Habano</a
+									>
+								</li>
+								<li class='flex items-center gap-x-1'>
+									<div class='bg-[#969593] w-5 h-3 rounded'></div>
+									<a href='#' class='text-grayText hover:text-darkGray font-bold'
+										>Gris Jaspe</a
+									>
+								</li>
+								<li class='flex items-center gap-x-1'>
+									<div class='bg-[#c6c7c1] w-5 h-3 rounded'></div>
+									<a href='#' class='text-grayText hover:text-darkGray font-bold'
+										>Gris Jaspe Claro</a
+									>
+								</li>
+							</div>
+						</ul>
+					</div>
+				</details>
+
+				<details
+					class='bg-darkGray p-4 space-y-2 rounded-md border border-mediumGray'
+				>
+					<summary class='text-xl'>¿Cómo puedo comprar las franelas?</summary>
+					<p class='text-grayText'>
+						Para elegir las franelas que te gustan, puedes revisar la tienda de
+						nuestra página web y ver los diferentes modelos, colores y tallas que
+						tenemos disponibles. Si te interesa alguno, puedes comunicarte con
+						nuestro vendedor por WhatsApp y hacer tu pedido. También puedes llenar
+						una lista de deseos con todos los modelos que te llamen la atención y
+						enviárnosla tambien por WhatsApp. Otra opción es contactarnos a través de
+						nuestras redes sociales, donde podrás ver más fotos y videos de las
+						franelas y hacer tus consultas.
+					</p>
+				</details>
+				<details
+					class='bg-darkGray p-4 space-y-2 rounded-md border border-mediumGray'
+				>
+					<summary class='text-xl'
+						>¿Las franelas se pueden comprar desde Colombia?</summary
+					>
+					<p class='text-grayText'>
+						Sí, las franelas se pueden comprar desde Colombia, ya que nuestra
+						producción se realiza en Medellin. Puedes hacer tu pedido por nuestra
+						página web o por WhatsApp y te enviaremos las franelas por correo
+						certificado. Los precios están expresados en pesos colombianos y puedes
+						consultar nuestros métodos de pago por nuestro contacto de WhatsApp.
+					</p>
+				</details>
+			</div>
+			<div class='space-y-4'>
+				<details
+					class='bg-darkGray p-4 space-y-2 rounded-md border border-mediumGray'
+				>
+					<summary class='text-xl'>¿Cuáles son las medidas de las franelas?</summary>
+					<p class='text-grayText'>
+						A continuación tienes una tabla con las medidas en centímetros
+						dependiendo de la talla de la franela:
+					</p>
+					<div class='flex flex-wrap justify-center lg:justify-between items-center'>
+						<div
+							class='relative overflow-x-auto shadow-md sm:rounded-lg lg:max-w-[50%] xl:max-w-[55%] 2xl:max-w-[60%]'
+						>
+							<table class='w-full text-sm text-left rtl:text-right text-lightGray'>
+								<thead class='text-xs uppercase text-grayText'>
+									<tr class='text-center'>
+										{
+											table.thead.map((text) => (
+												<td scope='col' class='px-6 py-3 '>
+													{text}
+												</td>
+											))
+										}
+									</tr>
+								</thead>
+								<tbody>
+									<tr class='border-b border-lightGray'>
+										<th
+											scope='row'
+											class='px-6 py-4 font-medium whitespace-nowrap text-white'
+										>
+											Hombros
+										</th>
+										{
+											table.hombros.map((text) => (
+												<td scope='col' class='px-6 py-3 '>
+													{text}
+												</td>
+											))
+										}
+									</tr>
+									<tr class='border-b border-lightGray'>
+										<th
+											scope='row'
+											class='px-6 py-4 font-medium whitespace-nowrap text-white'
+										>
+											Ancho
+										</th>
+										{
+											table.ancho.map((text) => (
+												<td scope='col' class='px-6 py-3 '>
+													{text}
+												</td>
+											))
+										}
+									</tr>
+
+									<tr class='border-b border-lightGray'>
+										<th
+											scope='row'
+											class='px-6 py-4 font-medium whitespace-nowrap text-white'
+										>
+											Mangas
+										</th>
+										{
+											table.mangas.map((text) => (
+												<td scope='col' class='px-6 py-3 '>
+													{text}
+												</td>
+											))
+										}
+									</tr>
+									<tr>
+										<th
+											scope='row'
+											class='px-6 py-4 font-medium whitespace-nowrap text-white'
+										>
+											Largo
+										</th>
+										{
+											table.largo.map((text) => (
+												<td scope='col' class='px-6 py-3 '>
+													{text}
+												</td>
+											))
+										}
+									</tr>
+								</tbody>
+							</table>
+						</div>
+
+						<div>
+							<Image
+								src={mockupSizes}
+								width={851}
+								height={1080}
+								class='w-80 lg:max-w-[220px]'
+								alt='Ejemplo de medidas imagen'
+							/>
+						</div>
+					</div>
+				</details>
+
+				<details
+					class='bg-darkGray p-4 space-y-2 rounded-md border border-mediumGray'
+				>
+					<summary class='text-xl'>¿De dónde provienen las franelas?</summary>
+					<p class='text-grayText'>
+						Las franelas son producidas y fabricadas en Colombia, por empresas que se
+						dedican a la confección de ropa de calidad y con responsabilidad social y
+						ambiental. Las franelas son enviadas a Venezuela para su venta,
+						cumpliendo con todos los requisitos legales y aduaneros.
+					</p>
+				</details>
+
+				<details
+					class='bg-darkGray p-4 space-y-2 rounded-md border border-mediumGray'
+				>
+					<summary class='text-xl'
+						>¿Cuánto tiempo tarda el envío de las franelas?</summary
+					>
+					<p class='text-grayText'>
+						El envío de las franelas a Venezuela tarda entre 10 a 12 días, ya que se
+						realiza por una empresa de transporte internacional que garantiza la
+						seguridad y la calidad del servicio. Por lo tanto, se pueden realizar
+						encargos de modelos de franelas en caso de no estar disponibles, pero
+						teniendo en cuenta el tiempo que se tome el envío.
+					</p>
+				</details>
+			</div>
+		</section>
+	</main></Layout
+>
