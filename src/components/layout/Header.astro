@@ -1,0 +1,51 @@
+---
+// import LoginIcon from '../icons/LoginIcon.astro';
+import Logo from '../icons/Logo.astro'
+import TCCIcon from '../icons/TCCIcon.astro'
+---
+
+<header class='absolute top-0 w-full z-50'>
+	{/* mobile navbar */}
+	<div class='p-4 flex justify-between items-center lg:hidden'>
+		<!-- <SideMenu client:idle transition:persist/> -->
+		<a href='/'>
+			<TCCIcon />
+		</a>
+		<!-- <Wishlist client:visible transition:persist/> -->
+	</div>
+
+	<!-- Desktop navbar -->
+	<div class='hidden lg:flex flex-col relative'>
+		<!-- top bar -->
+
+		<!-- bottom bar -->
+		<nav class='bg-transparent flex justify-between items-center px-5'>
+			<a href='/'>
+				<Logo />
+			</a>
+
+			<ul class='flex gap-x-[70px] font-medium uppercase'>
+				<li>
+					<a href='/' class='opacity-70 hover:opacity-100'>Home</a>
+				</li>
+				<li>
+					<a href='/tienda' class='opacity-75 hover:opacity-100'>Tienda</a>
+				</li>
+				<li>
+					<a href='/faqs' class='opacity-70 hover:opacity-100'>FAQ</a>
+				</li>
+				<li>
+					<a href='/contacto' class='opacity-70 hover:opacity-100'>Contacto</a>
+				</li>
+			</ul>
+
+			<form>
+				<input
+					type='text'
+					placeholder='Buscar'
+					class='bg-transparent border border-white py-2 px-3 text-xs w-72 opacity-50 focus:opacity-100 outline-none rounded-lg'
+				/>
+			</form>
+		</nav>
+	</div>
+</header>
