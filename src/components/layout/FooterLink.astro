@@ -1,0 +1,14 @@
+---
+type Props = {
+	url: string
+	text: string
+}
+
+const { url, text } = Astro.props
+---
+
+<li>
+	<a href={url} class='opacity-60 hover:opacity-100'>
+		{text}
+	</a>
+</li>

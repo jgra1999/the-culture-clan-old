@@ -1,0 +1,73 @@
+---
+import FooterLink from './FooterLink.astro'
+
+/* icons */
+import InstagramIcon from '@/components/icons/InstagramIcon.astro'
+import WhatsappIcon from '@/components/icons/WhatsappIcon.astro'
+import Logo from '@/components/icons/Logo.astro'
+import TiktokIcon from '@/components/icons/TiktokIcon.astro'
+import { EnvelopeIcon } from '@heroicons/react/24/outline'
+---
+
+<footer class='flex flex-col gap-y-10 lg:gap-y-20 bg-darkGray py-20 px-5 xl:px-40'>
+	{/* Footer screen >= lg */}
+	<div class='hidden lg:grid lg:grid-cols-4 mt-auto'>
+		<Logo />
+		<div>
+			<h3 class='font-bold mb-2'>MENU</h3>
+			<ul class='space-y-2 text-sm'>
+				<FooterLink url='/' text='Home' />
+				<FooterLink url='/tienda' text='Colecciones' />
+				<FooterLink url='#' text='Sobre Nosotros' />
+			</ul>
+		</div>
+		<div>
+			<h3 class='font-bold mb-2'>SOCIAL</h3>
+			<ul class='space-y-2 text-sm'>
+				<FooterLink
+					url='https://instagram.com/th3cultureclan?igshid=NGVhN2U2NjQ0Yg=='
+					text='Instagram'
+				/>
+				<FooterLink url='#' text='TikTok' />
+				<FooterLink url='https://wa.link/phwrwn' text='WhatsApp' />
+				<FooterLink url='#' text='Email' />
+			</ul>
+		</div>
+		<div>
+			<h3 class='font-bold mb-2'>AYUDA</h3>
+			<ul class='space-y-2 text-sm'>
+				<FooterLink url='/contacto' text='Contáctenos' />
+				<FooterLink url='politica-de-privacidad' text='Política de Privacidad' />
+				<FooterLink url='terminos-y-condiciones' text='Términos y condiciones' />
+			</ul>
+		</div>
+	</div>
+
+	{/* Footer screen <a= lg */}
+	<div class='grid grid-cols-1 lg:hidden gap-y-10'>
+		<Logo />
+		<div
+			class='flex flex-col divide-y-[1px] divide-mediumGray text-lg font-bold text-'
+		>
+			<a href='/tienda' class='py-2'>COLECCIONES</a>
+			<h3 class='py-2'>SOCIAL</h3>
+			<h3 class='py-2'>AYUDA</h3>
+			<a href='/contacto' class='py-2'>MANTENTE EN CONTACTO</a>
+		</div>
+		<div class='flex justify-center items-center gap-x-3'>
+			<a href='https://instagram.com/th3cultureclan?igshid=NGVhN2U2NjQ0Yg=='>
+				<InstagramIcon styles='social-icon' />
+			</a>
+			<a href='https://wa.link/phwrwn'>
+				<WhatsappIcon styles='social-icon' />
+			</a>
+			<TiktokIcon />
+			<EnvelopeIcon className='social-icon' />
+		</div>
+	</div>
+
+	<div class='flex justify-between text-[#484848] pt-4 border-t-2 border-mediumGray'>
+		<small> © 2023 The Clan Culture</small>
+		<a href='/admin/dashboard' class='hover:text-white'>admin</a>
+	</div>
+</footer>
