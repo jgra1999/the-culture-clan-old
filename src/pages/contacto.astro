@@ -1,0 +1,63 @@
+---
+import { Image } from 'astro:assets'
+import Layout from '../layouts/Layout.astro'
+/* components */
+import InstagramIcon from '../components/icons/InstagramIcon.astro'
+
+import QrInstagram from '../assets/Qr-Instagram.png'
+import QrWhatsapp from '../assets/Qr-whatsapp.png'
+import { EnvelopeIcon, MapIcon, PhoneIcon } from '@heroicons/react/24/outline'
+---
+
+<Layout title='Contacto'>
+	<main class='pt-36 grid grid-cols-1 lg:grid-cols-2 gap-y-10'>
+		<div class='flex flex-col justify-start gap-y-5 px-8 lg:pt-20'>
+			<h2 class='text-3xl md:text-5xl font-bold'>Mantente en Contacto</h2>
+			<p class='font-medium md:text-lg xl:max-w-[90%] text-grayText'>
+				Tu opinión es muy importante, por eso te invitamos a que nos escribas siempre
+				que quieras. Puedes enviarnos un correo electrónico, escribirnos por teléfono
+				o seguirnos en redes sociales. Estaremos encantados de responder a tus
+				consultas, escuchar tus sugerencias, leer tus comentarios o recibir tus
+				felicitaciones.
+			</p>
+			<ul class='space-y-3'>
+				<li
+					class='flex gap-x-1 text-grayText text-sm md:text-base font-medium items-center'
+				>
+					<MapIcon className='w-5 h-5 md:w-6 md:h-6' />
+					Venezuela | Colombia
+				</li>
+				<li
+					class='flex gap-x-1 text-grayText text-sm md:text-base font-medium items-center'
+				>
+					<PhoneIcon className='w-5 h-5 md:w-6 md:h-6' />
+					+58 424-4155064
+				</li>
+				<li
+					class='flex gap-x-1 text-grayText text-sm md:text-base font-medium items-center'
+				>
+					<InstagramIcon styles='w-5 h-5 md:w-6 md:h-6' />
+					th3cultureclan
+				</li>
+				<li
+					class='flex gap-x-1 text-grayText text-sm md:text-base font-medium items-center'
+				>
+					<EnvelopeIcon className='w-5 h-5 md:w-6 md:h-6' />
+					adm.thecultureclan@gmail.com
+				</li>
+			</ul>
+		</div>
+		<div
+			class='flex flex-col xl:flex-row items-center xl:items-start justify-center gap-5 lg:gap-10 bg-darkGray w-full h-screen lg:pt-20'
+		>
+			<Image
+				src={QrInstagram}
+				alt='Instagram QR imagen'
+				width={294}
+				height={350}
+				quality={100}
+			/>
+			<Image src={QrWhatsapp} width={294} alt='WhatsApp QR imagen' height={350} />
+		</div>
+	</main>
+</Layout>
