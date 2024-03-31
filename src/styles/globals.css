@@ -2,11 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-h2 {
-	font-family: 'Bebas Neue', sans-serif;
-	@apply text-lightGray tracking-[1px] text-7xl;
-}
-
 body {
 	@apply bg-[#141414] 
     text-[#F6F6F6];
