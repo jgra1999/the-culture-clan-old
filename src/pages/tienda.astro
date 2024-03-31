@@ -1,0 +1,19 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import ItemsList from '@/components/shop/ItemsList.tsx'
+---
+
+<Layout title='Tienda'>
+	<main class='pt-28 min-h-[1000px] lg:pt-52 px-14 xl:container xl:mx-auto'>
+		<div
+			class='flex flex-col pb-10 lg:gap-y-32 items-center border-b-2 border-mediumGray'
+		>
+			<h2
+				class='text-2xl lg:text-5xl font-bold uppercase tracking-wider text-center'
+			>
+				Todos los Productos
+			</h2>
+		</div>
+		<ItemsList client:load transition:persist />
+	</main>
+</Layout>
