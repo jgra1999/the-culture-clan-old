@@ -4,7 +4,7 @@ import type { Database } from '@/../types/supabase'
 /* componentes */
 import ItemCard from './ItemCard'
 import Loader from '../ui/Loader'
-// import CollectionDropDown from '../shop/CollectionDropDown'
+import CollectionDropDown from '../shop/CollectionDropDown'
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline'
 
 export default function ItemsList() {
@@ -106,7 +106,7 @@ export default function ItemsList() {
 						Más Populares
 					</button>
 					<div>
-						{/* <CollectionDropDown setCollection={handleCollectionFilter} /> */}
+						<CollectionDropDown setCollection={handleCollectionFilter} />
 					</div>
 				</div>
 				<div className='hidden lg:flex justify-between gap-x-5'>
