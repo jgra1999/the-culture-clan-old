@@ -1,12 +1,16 @@
 ---
 import { Image } from 'astro:assets'
 import Layout from '../layouts/Layout.astro'
-/* components */
-import InstagramIcon from '../components/icons/InstagramIcon.astro'
 
+/* icons */
+import InstagramIcon from '../components/icons/InstagramIcon.astro'
 import QrInstagram from '../assets/Qr-Instagram.png'
 import QrWhatsapp from '../assets/Qr-whatsapp.png'
-import { EnvelopeIcon, MapIcon, PhoneIcon } from '@heroicons/react/24/outline'
+import {
+	DevicePhoneMobileIcon,
+	EnvelopeIcon,
+	MapIcon
+} from '@heroicons/react/24/outline'
 ---
 
 <Layout title='Contacto'>
@@ -30,19 +34,19 @@ import { EnvelopeIcon, MapIcon, PhoneIcon } from '@heroicons/react/24/outline'
 				<li
 					class='flex gap-x-1 text-grayText text-sm md:text-base font-medium items-center'
 				>
-					<PhoneIcon className='w-5 h-5 md:w-6 md:h-6' />
+					<DevicePhoneMobileIcon className='w-5 h-5 md:w-6 md:h-6' />
 					+58 424-4155064
 				</li>
 				<li
 					class='flex gap-x-1 text-grayText text-sm md:text-base font-medium items-center'
 				>
-					<InstagramIcon styles='w-5 h-5 md:w-6 md:h-6' />
+					<InstagramIcon styles='w-5 h-5 md:w-7 md:h-7' />
 					th3cultureclan
 				</li>
 				<li
 					class='flex gap-x-1 text-grayText text-sm md:text-base font-medium items-center'
 				>
-					<EnvelopeIcon className='w-5 h-5 md:w-6 md:h-6' />
+					<EnvelopeIcon className='w-5 h-5 md:w-6 md:h-6 stroke-[1px]' />
 					adm.thecultureclan@gmail.com
 				</li>
 			</ul>
@@ -50,6 +54,7 @@ import { EnvelopeIcon, MapIcon, PhoneIcon } from '@heroicons/react/24/outline'
 		<div
 			class='flex flex-col xl:flex-row items-center xl:items-start justify-center gap-5 lg:gap-10 bg-darkGray w-full h-screen lg:pt-20'
 		>
+			<!-- TODO: ver si puedo optimizar por mi cuenta las imagenes y colocarlas -->
 			<Image
 				src={QrInstagram}
 				alt='Instagram QR imagen'
