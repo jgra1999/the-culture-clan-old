@@ -4,7 +4,7 @@ import {
 	DropdownMenuItem,
 	DropdownMenuTrigger
 } from '@/components/ui/dropdown-menu'
-import { ChevronDownIcon } from '@heroicons/react/24/outline'
+import { ChevronDownIcon } from '@heroicons/react/20/solid'
 
 export default function CollectionDropDown({
 	setCollection
@@ -19,27 +19,43 @@ export default function CollectionDropDown({
 			</DropdownMenuTrigger>
 			<DropdownMenuContent>
 				<DropdownMenuItem>
-					<button onClick={setCollection} value=''>
+					<button onClick={setCollection} className='w-full py-1 text-left' value=''>
 						Todas
 					</button>
 				</DropdownMenuItem>
 				<DropdownMenuItem>
-					<button onClick={setCollection} value='New Culture'>
+					<button
+						onClick={setCollection}
+						className='w-full py-1 text-left'
+						value='New Culture'
+					>
 						New Culture
 					</button>
 				</DropdownMenuItem>
 				<DropdownMenuItem>
-					<button onClick={setCollection} value='Rap Culture'>
+					<button
+						onClick={setCollection}
+						className='w-full py-1 text-left'
+						value='Rap Culture'
+					>
 						Rap Culture
 					</button>
 				</DropdownMenuItem>
 				<DropdownMenuItem>
-					<button onClick={setCollection} value='Pop Culture'>
+					<button
+						onClick={setCollection}
+						className='w-full py-1 text-left'
+						value='Pop Culture'
+					>
 						Pop Culture
 					</button>
 				</DropdownMenuItem>
 				<DropdownMenuItem>
-					<button onClick={setCollection} value='Urban Culture'>
+					<button
+						onClick={setCollection}
+						className='w-full py-1 text-left'
+						value='Urban Culture'
+					>
 						Urban Culture
 					</button>
 				</DropdownMenuItem>
