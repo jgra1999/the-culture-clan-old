@@ -1,47 +1,36 @@
 import { HandThumbUpIcon } from '@heroicons/react/24/outline'
+import ItemModal from './ItemModal'
+import type { Database } from 'types/supabase'
 
 interface Props {
-	id: string
-	image_url_2: string
-	name: string
-	price: number
-	likes: number
-	slug: string
+	item: Database['public']['Tables']['products']['Row']
 }
 
-export default function ItemCard({
-	id,
-	image_url_2,
-	name,
-	price,
-	likes,
-	slug
-}: Props) {
+export default function ItemCard({ item }: Props) {
 	return (
-		<a
-			href={`/tienda/${slug}`}
-			className='flex flex-col gap-y-4 hover:scale-105 transition-all'
-		>
-			<img
-				src={image_url_2}
-				alt={`Franela - ${name}`}
-				className='aspect-[384/576] h-full w-full rounded-lg'
-				style={{ viewTransitionName: `book-${id}` }}
-				loading='lazy'
-			/>
-			<div className='flex justify-between font-medium'>
-				<div>
-					<p className='text-[#5e5e5e] text-xl font-bold'>{name}</p>
-					<span className='text-xl'>
-						${price}
-						{Number.isInteger(price) ? '.00' : ''}
-					</span>
-				</div>
-				<div className='flex gap-x-1 items-start'>
-					<HandThumbUpIcon className='w-7 h-7' />
-					{likes}
+		<ItemModal item={item}>
+			<div className='flex flex-col gap-y-4 hover:scale-105 transition-all'>
+				<img
+					src={item.image_url_2}
+					alt={`Franela - ${item.name}`}
+					className='aspect-[384/576] h-full w-full rounded-lg'
+					loading='lazy'
+				/>
+				<div className='flex justify-between font-medium w-full text-start'>
+					<div>
+						<p className='text-[#5e5e5e] text-xl font-bold item-name'>{item.name}</p>
+						<span className='text-xl'>
+							${item.price}
+							{Number.isInteger(item.price) ? '.00' : ''}
+						</span>
+					</div>
+					<div className='flex gap-x-1 items-start'>
+						{/* TODO: Cambiar icono del like */}
+						<HandThumbUpIcon className='w-7 h-7' />
+						{item.likes}
+					</div>
 				</div>
 			</div>
-		</a>
+		</ItemModal>
 	)
 }

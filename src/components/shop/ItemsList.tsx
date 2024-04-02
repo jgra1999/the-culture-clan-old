@@ -133,15 +133,7 @@ export default function ItemsList() {
 			<section className='mt-10 md:mt-20 mb-10 relative'>
 				<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10'>
 					{items?.map((item: Database['public']['Tables']['products']['Row']) => (
-						<ItemCard
-							key={item.id}
-							id={item.id}
-							name={item.name}
-							image_url_2={item.image_url_2}
-							price={item.price}
-							likes={item.likes}
-							slug={item.slug}
-						/>
+						<ItemCard key={item.id} item={item} />
 					))}
 				</div>
 
