@@ -1,6 +1,7 @@
 import { HandThumbUpIcon } from '@heroicons/react/24/outline'
 import ItemModal from './ItemModal'
 import type { Database } from 'types/supabase'
+import { LikeIcon } from '../icons/icons'
 
 interface Props {
 	item: Database['public']['Tables']['products']['Row']
@@ -26,7 +27,7 @@ export default function ItemCard({ item }: Props) {
 					</div>
 					<div className='flex gap-x-1 items-start'>
 						{/* TODO: Cambiar icono del like */}
-						<HandThumbUpIcon className='w-7 h-7' />
+						<LikeIcon />
 						{item.likes}
 					</div>
 				</div>
