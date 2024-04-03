@@ -27,7 +27,7 @@ export default function ItemCard({ item }: Props) {
 					</div>
 					<div className='flex gap-x-1 items-start'>
 						{/* TODO: Cambiar icono del like */}
-						<LikeIcon />
+						<LikeIcon fill='' />
 						{item.likes}
 					</div>
 				</div>

@@ -14,14 +14,14 @@ export const DislikeIcon = ({ fill }: { fill: string }) => (
 	</svg>
 )
 
-export const LikeIcon = () => (
+export const LikeIcon = ({ fill }: { fill: string }) => (
 	<svg
 		xmlns='http://www.w3.org/2000/svg'
 		className='w-7 h-7'
 		viewBox='0 0 24 24'
 		stroke-width='1.5'
 		stroke='currentColor'
-		fill=''
+		fill={fill}
 		stroke-linecap='round'
 		stroke-linejoin='round'
 	>

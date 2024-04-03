@@ -3,6 +3,8 @@ import { Fragment, useState } from 'react'
 import type { Database } from 'types/supabase'
 import { WhatsappIcon } from '../icons/icons.tsx'
 import DisLikeButton from './DIslikeButton.tsx'
+import LikeButton from './LikeButton.tsx'
+import { XMarkIcon } from '@heroicons/react/24/outline'
 
 interface Props {
 	item: Database['public']['Tables']['products']['Row']
@@ -11,18 +13,15 @@ interface Props {
 
 export default function ItemModal({ children, item }: Props) {
 	let [isOpen, setIsOpen] = useState(false)
+	const [mainImage, setMainImage] = useState(item.image_url_2)
 
-	function closeModal() {
+	const closeModal = () => {
 		setIsOpen(false)
 	}
 
-	function openModal() {
+	const openModal = () => {
 		setIsOpen(true)
 	}
-
-	//TODO: Revisar iconos de los likes
-	//TODO: Agregar funcionamiento para cambiar imagen principal con las que seleccionen
-	//TODO: Agregar funcionamiento para cerrar el modal con el icono de la X
 
 	return (
 		<>
@@ -57,37 +56,23 @@ export default function ItemModal({ children, item }: Props) {
 							>
 								<Dialog.Panel className='grid grid-cols-1 lg:grid-cols-2 w-full gap-y-5 max-w-5xl transform overflow-hidden rounded-2xl bg-[#141414] p-6 shadow-xl transition-all opacity-100 scale-100'>
 									<div className='flex flex-col items-start gap-y-5 mt-5'>
-										<button className='absolute right-3 top-3'>
-											<svg
-												xmlns='http://www.w3.org/2000/svg'
-												fill='none'
-												viewBox='0 0 24 24'
-												stroke-width='1.5'
-												stroke='currentColor'
-												aria-hidden='true'
-												className='w-7 h-7'
-											>
-												<path
-													stroke-linecap='round'
-													stroke-linejoin='round'
-													d='M6 18L18 6M6 6l12 12'
-												></path>
-											</svg>
+										<button className='absolute right-3 top-3' onClick={closeModal}>
+											<XMarkIcon className='w-7 h-7' />
 										</button>
 										<img
-											src={item.image_url_2}
+											src={mainImage}
 											alt='product image'
 											className='w-full lg:w-11/12 rounded-lg aspect-[664/996]'
 										/>
 										<div className='flex justify-between lg:justify-start items-center gap-x-3 w-full'>
-											<button>
+											<button onClick={() => setMainImage(item.image_url_1)}>
 												<img
 													src={item.image_url_1}
 													alt=''
 													className='w-36 rounded-lg aspect-[664/996]'
 												/>
 											</button>
-											<button>
+											<button onClick={() => setMainImage(item.image_url_2)}>
 												<img
 													src={item.image_url_2}
 													alt=''
@@ -118,7 +103,7 @@ export default function ItemModal({ children, item }: Props) {
 										</div>
 										<div className='mt-4 flex items-center gap-x-5'>
 											<a
-												href='https://wa.me/+584244155064/?text=Hola!%20me%20interesa%20la%20franela%20de%20TCC Company Black'
+												href={`https://wa.me/+584244155064/?text=Hola!%20me%20interesa%20la%20franela%20de%20${item.name}`}
 												className='flex items-center justify-center gap-x-1 border-2 border-white py-3 px-4 rounded text-xs md:text-base opacity-50 hover:opacity-100 min-w-[50%]'
 												target='_blank'
 											>
@@ -126,23 +111,8 @@ export default function ItemModal({ children, item }: Props) {
 												Consultar Disponibilidad
 											</a>
 											<div className='flex items-end gap-x-4 divide-mediumGray'>
-												<button className='flex gap-x-1 items-center hover:opacity-100 cursor-pointer opacity-50'>
-													<svg
-														xmlns='http://www.w3.org/2000/svg'
-														className='w-7 h-7'
-														viewBox='0 0 24 24'
-														stroke-width='1.5'
-														stroke='currentColor'
-														fill=''
-														stroke-linecap='round'
-														stroke-linejoin='round'
-													>
-														{' '}
-														<path stroke='none' d='M0 0h24v24H0z' fill='none'></path>
-														<path d='M7 11v8a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1v-7a1 1 0 0 1 1 -1h3a4 4 0 0 0 4 -4v-1a2 2 0 0 1 4 0v5h3a2 2 0 0 1 2 2l-1 5a2 3 0 0 1 -2 2h-7a3 3 0 0 1 -3 -3'></path>
-													</svg>
-													{item.likes}
-												</button>
+												<LikeButton id={item.id} currentLikes={item.dislikes} />
+
 												<DisLikeButton
 													id={item.id}
 													currentDislikes={item.dislikes}
