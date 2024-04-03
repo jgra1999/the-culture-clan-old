@@ -1,6 +1,8 @@
 import { Dialog, Transition } from '@headlessui/react'
 import { Fragment, useState } from 'react'
 import type { Database } from 'types/supabase'
+import { WhatsappIcon } from '../icons/icons.tsx'
+import DisLikeButton from './DIslikeButton.tsx'
 
 interface Props {
 	item: Database['public']['Tables']['products']['Row']
@@ -120,20 +122,7 @@ export default function ItemModal({ children, item }: Props) {
 												className='flex items-center justify-center gap-x-1 border-2 border-white py-3 px-4 rounded text-xs md:text-base opacity-50 hover:opacity-100 min-w-[50%]'
 												target='_blank'
 											>
-												<svg
-													xmlns='http://www.w3.org/2000/svg'
-													className='w-6 h-6'
-													viewBox='0 0 24 24'
-													stroke-width='2'
-													stroke='currentColor'
-													fill='none'
-													stroke-linecap='round'
-													stroke-linejoin='round'
-												>
-													<path stroke='none' d='M0 0h24v24H0z' fill='none'></path>
-													<path d='M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9'></path>
-													<path d='M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1'></path>
-												</svg>
+												<WhatsappIcon styles='w-6 h-6' />
 												Consultar Disponibilidad
 											</a>
 											<div className='flex items-end gap-x-4 divide-mediumGray'>
@@ -154,21 +143,10 @@ export default function ItemModal({ children, item }: Props) {
 													</svg>
 													{item.likes}
 												</button>
-												<button className='hover:opacity-100 cursor-pointer opacity-50'>
-													<svg
-														xmlns='http://www.w3.org/2000/svg'
-														className='w-7 h-7'
-														viewBox='0 0 24 24'
-														stroke-width='1.5'
-														stroke='currentColor'
-														fill=''
-														stroke-linecap='round'
-														stroke-linejoin='round'
-													>
-														<path stroke='none' d='M0 0h24v24H0z' fill='none'></path>
-														<path d='M7 13v-8a1 1 0 0 0 -1 -1h-2a1 1 0 0 0 -1 1v7a1 1 0 0 0 1 1h3a4 4 0 0 1 4 4v1a2 2 0 0 0 4 0v-5h3a2 2 0 0 0 2 -2l-1 -5a2 3 0 0 0 -2 -2h-7a3 3 0 0 0 -3 3'></path>
-													</svg>
-												</button>
+												<DisLikeButton
+													id={item.id}
+													currentDislikes={item.dislikes}
+												/>
 											</div>
 										</div>
 										<div className='space-y-5 text-left'>
