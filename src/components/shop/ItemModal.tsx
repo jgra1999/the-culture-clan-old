@@ -5,13 +5,17 @@ import { WhatsappIcon } from '../icons/icons.tsx'
 import DisLikeButton from './DIslikeButton.tsx'
 import LikeButton from './LikeButton.tsx'
 import { XMarkIcon } from '@heroicons/react/24/outline'
+import { useCurrency } from '@/store/currency.ts'
 
 interface Props {
 	item: Database['public']['Tables']['products']['Row']
 	children: React.ReactNode
+	price: number
 }
 
-export default function ItemModal({ children, item }: Props) {
+export default function ItemModal({ children, item, price }: Props) {
+	const { currency } = useCurrency()
+
 	let [isOpen, setIsOpen] = useState(false)
 	const [mainImage, setMainImage] = useState(item.image_url_2)
 
@@ -90,10 +94,16 @@ export default function ItemModal({ children, item }: Props) {
 												{item.name}
 											</Dialog.Title>
 											<div>
-												<span className='text-xl lg:text-2xl xl:text-4xl'>
-													${item.price}
-													{Number.isInteger(item.price) ? '.00' : ''}
-												</span>
+												{currency === 'CO' ? (
+													<span className='text-xl lg:text-2xl xl:text-4xl'>
+														{Math.ceil(price).toLocaleString('es-CO')} COP
+													</span>
+												) : (
+													<span className='text-xl lg:text-2xl xl:text-4xl'>
+														${price}
+														{Number.isInteger(price) ? '.00' : ''}
+													</span>
+												)}
 											</div>
 										</div>
 										<div className='mt-2'>

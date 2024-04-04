@@ -1,15 +1,29 @@
-import { HandThumbUpIcon } from '@heroicons/react/24/outline'
 import ItemModal from './ItemModal'
 import type { Database } from 'types/supabase'
 import { LikeIcon } from '../icons/icons'
+import { useCurrency } from '@/store/currency'
+import { useEffect, useState } from 'react'
 
 interface Props {
 	item: Database['public']['Tables']['products']['Row']
 }
 
 export default function ItemCard({ item }: Props) {
+	const { currency } = useCurrency()
+	const [currencyPrice, setCurrencyPrice] = useState(item.price)
+
+	const transformCurrency = () => {
+		if (currency === 'CO') {
+			setCurrencyPrice(item.price * 3766)
+		}
+	}
+
+	useEffect(() => {
+		transformCurrency()
+	}, [currencyPrice])
+
 	return (
-		<ItemModal item={item}>
+		<ItemModal item={item} price={currencyPrice}>
 			<div className='flex flex-col gap-y-4 hover:scale-105 transition-all'>
 				<img
 					src={item.image_url_2}
@@ -20,10 +34,16 @@ export default function ItemCard({ item }: Props) {
 				<div className='flex justify-between font-medium w-full text-start'>
 					<div>
 						<p className='text-[#5e5e5e] text-xl font-bold item-name'>{item.name}</p>
-						<span className='text-xl'>
-							${item.price}
-							{Number.isInteger(item.price) ? '.00' : ''}
-						</span>
+						{currency === 'CO' ? (
+							<span className='text-xl'>
+								{Math.ceil(currencyPrice).toLocaleString('es-CO')} COP
+							</span>
+						) : (
+							<span className='text-xl'>
+								${currencyPrice}
+								{Number.isInteger(item.price) ? '.00' : ''}
+							</span>
+						)}
 					</div>
 					<div className='flex gap-x-1 items-start'>
 						{/* TODO: Cambiar icono del like */}
