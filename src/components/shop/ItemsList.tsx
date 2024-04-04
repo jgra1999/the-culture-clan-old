@@ -6,6 +6,7 @@ import ItemCard from './ItemCard'
 import Loader from '../ui/Loader'
 import CollectionDropDown from '../shop/CollectionDropDown'
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline'
+import CurrencyDropDown from './CurrencyDropDown'
 
 export default function ItemsList() {
 	const [items, setItems] = useState<
@@ -16,6 +17,7 @@ export default function ItemsList() {
 	/* filters */
 	const [collection, setCollection] = useState('')
 	const [orderBy, setOrderBy] = useState('created_at')
+
 	/* pagination */
 	const [page, setPage] = useState(1)
 	const [from, setFrom] = useState(0)
@@ -107,6 +109,9 @@ export default function ItemsList() {
 					</button>
 					<div>
 						<CollectionDropDown setCollection={handleCollectionFilter} />
+					</div>
+					<div>
+						<CurrencyDropDown />
 					</div>
 				</div>
 				<div className='hidden lg:flex justify-between gap-x-5'>
