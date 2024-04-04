@@ -1,5 +1,5 @@
 import ItemModal from './ItemModal'
-import type { Database } from 'types/supabase'
+import type { Database } from '@/types/supabase'
 import { LikeIcon } from '../icons/icons'
 import { useCurrency } from '@/store/currency'
 import { useEffect, useState } from 'react'

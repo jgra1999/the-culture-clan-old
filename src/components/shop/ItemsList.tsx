@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
-import { supabase } from '@/../supabase/client'
-import type { Database } from '@/../types/supabase'
+import { supabase } from '@/supabase/client'
+import type { Database } from '@/types/supabase'
 /* componentes */
 import ItemCard from './ItemCard'
 import Loader from '../ui/Loader'

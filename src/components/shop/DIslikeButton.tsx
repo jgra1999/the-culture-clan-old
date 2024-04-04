@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { DislikeIcon } from '../icons/icons.tsx'
-import { supabase } from 'supabase/client'
+import { supabase } from '@/supabase/client.ts'
 
 type Props = {
 	currentDislikes: number | undefined

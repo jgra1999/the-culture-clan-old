@@ -1,6 +1,6 @@
 import { Dialog, Transition } from '@headlessui/react'
 import { Fragment, useState } from 'react'
-import type { Database } from 'types/supabase'
+import type { Database } from '@/types/supabase.ts'
 import { WhatsappIcon } from '../icons/icons.tsx'
 import DisLikeButton from './DIslikeButton.tsx'
 import LikeButton from './LikeButton.tsx'
