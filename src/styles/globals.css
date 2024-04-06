@@ -12,3 +12,11 @@ body {
 .social-icon {
 	@apply stroke-[1.5] opacity-50 hover:opacity-100 w-9 h-9;
 }
+
+::-webkit-scrollbar {
+	@apply w-2 bg-black;
+}
+
+::-webkit-scrollbar-thumb {
+	@apply bg-zinc-800 rounded;
+}
