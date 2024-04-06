@@ -1,0 +1,76 @@
+---
+import { ViewTransitions } from 'astro:transitions'
+import '@/styles/globals.css'
+
+import Navigation from '../components/admin/ui/Navigation.astro'
+
+interface Props {
+	title: string | undefined
+}
+
+const { title } = Astro.props
+---
+
+<!doctype html>
+<html lang='es'>
+	<head>
+		<meta charset='UTF-8' />
+		<meta name='description' content='Astro description' />
+		<meta name='viewport' content='width=device-width' />
+		<link rel='icon' type='image/svg+xml' href='/icon.svg' />
+		<meta name='generator' content={Astro.generator} />
+		<ViewTransitions />
+
+		<link rel='preconnect' href='https://fonts.googleapis.com' />
+		<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
+		<link
+			href='https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@100;300;400;500;700;900&display=swap'
+			rel='stylesheet'
+		/>
+		<!-- favicon -->
+		<link
+			rel='apple-touch-icon'
+			sizes='180x180'
+			href='/favicon/apple-touch-icon.png'
+		/>
+		<link
+			rel='icon'
+			type='image/png'
+			sizes='32x32'
+			href='/favicon/favicon-32x32.png'
+		/>
+		<link
+			rel='icon'
+			type='image/png'
+			sizes='16x16'
+			href='/favicon/favicon-16x16.png'
+		/>
+		<link rel='manifest' href='/site.webmanifest' />
+		<title>Admin - {title}</title>
+	</head>
+	<body>
+		<Navigation title={title} />
+		<main class='container mx-auto w-11/12 sm:w-3/4 grid grid-cols-1 mt-20 relative'>
+			<slot />
+		</main>
+		<style is:global>
+			html {
+				height: 100%;
+			}
+
+			body {
+				background-color: #141414;
+				color: #fff;
+				font-family: 'Roboto', sans-serif;
+			}
+
+			.social-icon {
+				@apply stroke-[1.5] opacity-50 hover:opacity-100 w-9 h-9;
+			}
+
+			textarea {
+				form-sizing: content;
+			}
+		</style>
+	</body>
+</html>
