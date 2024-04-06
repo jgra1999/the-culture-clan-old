@@ -1,0 +1,52 @@
+---
+export const prerender = false
+
+import TCCIcon from '@/components/icons/TCCIcon.astro'
+import '@/styles/globals.css'
+
+// import LoginForm from "../../components/admin/LoginForm";
+
+import { AdminLoginForm } from '@/components/admin/forms/AdminLoginForm'
+
+const cookie = Astro.request.headers.get('cookie')
+
+if (cookie === 'admin=true') {
+	return Astro.redirect('/admin/dashboard')
+}
+---
+
+<!doctype html>
+<html lang='es'>
+	<head>
+		<meta charset='UTF-8' />
+		<meta name='viewport' content='width=device-width, initial-scale=1.0' />
+		<!-- favicon -->
+		<link
+			rel='apple-touch-icon'
+			sizes='180x180'
+			href='/favicon/apple-touch-icon.png'
+		/>
+		<link
+			rel='icon'
+			type='image/png'
+			sizes='32x32'
+			href='/favicon/favicon-32x32.png'
+		/>
+		<link
+			rel='icon'
+			type='image/png'
+			sizes='16x16'
+			href='/favicon/favicon-16x16.png'
+		/>
+		<link rel='manifest' href='/site.webmanifest' />
+		<title>Admin - Login</title>
+	</head>
+	<body>
+		<div
+			class='flex flex-col gap-y-4 items-center justify-center text-center h-screen mb-10'
+		>
+			<TCCIcon styles='w-36 h-36' />
+			<AdminLoginForm client:visible />
+		</div>
+	</body>
+</html>
