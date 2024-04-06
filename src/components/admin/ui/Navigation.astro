@@ -1,0 +1,26 @@
+---
+// import AdminSideMenu from "./AdminSideMenu.astro";
+
+type Props = {
+	title: string | undefined
+}
+
+const { title } = Astro.props
+---
+
+<nav
+	class='flex py-4 px-5 justify-between items-center border-b-[1px] border-mediumGray'
+>
+	<div class='flex gap-x-1 items-center'>
+		<!-- <AdminSideMenu /> -->
+		<span class='text-xl font-medium'>{title}</span>
+	</div>
+	<div class='flex items-center gap-x-2'>
+		<span class='text-grayText'>Jose Rojas</span>
+		<img
+			class='w-10 h-10 p-1 rounded-full ring-1 ring-mediumGray'
+			src='https://wac-cdn.atlassian.com/dam/jcr:ba03a215-2f45-40f5-8540-b2015223c918/Max-R_Headshot%20(1).jpg?cdnVersion=1221'
+			alt='Bordered avatar'
+		/>
+	</div>
+</nav>
