@@ -1,0 +1,27 @@
+---
+export const prerender = false
+
+import AdminLayout from '../../layouts/AdminLayout.astro'
+// import StatsCard from "../../components/admin/StatsCard.astro";
+
+const cookie = Astro.cookies.get('admin')
+
+if (cookie && cookie.value !== 'true') {
+	return Astro.redirect('/admin/login')
+}
+---
+
+<AdminLayout title='Dashboard'>
+	<div>
+		<p class='font-medium'>Ultimos 7 dias</p>
+	</div>
+
+	<div class='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-10'>
+		<!-- <StatsCard name="Fondos" growth={20.18} stats={`$${245988.54}`} tableUrl="/admin/fondos" />
+        <StatsCard name="Ventas" growth={4.18} stats={`$${988.33}`} tableUrl="/admin/ventas" />
+        <StatsCard name="Gastos" growth={-4.18} stats={`$${87.74}`} tableUrl="/admin/gastos" />
+        <StatsCard name="Usuarios" stats={`${127}`} tableUrl="/admin/usuarios" />
+        <StatsCard name="Productos" stats={`${24}`} tableUrl="/admin/productos" /> -->
+		<h2>Dashboard</h2>
+	</div>
+</AdminLayout>
