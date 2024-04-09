@@ -23,6 +23,11 @@ module.exports = {
 				'accordion-up': 'accordion-up 0.2s ease-out'
 			},
 
+			backgroundImage: {
+				space404:
+					"url('https://res.cloudinary.com/hothra/image/upload/v1695154549/the%20culture%20clan/404-bg_utmkeu.jpg')"
+			},
+
 			colors: {
 				primary: '#5c6ac4',
 				secondary: '#ecc94b',
@@ -34,5 +39,5 @@ module.exports = {
 			}
 		}
 	},
-	plugins: [require('tailwindcss-animate')]
+	plugins: [require('tailwindcss-animated')]
 }

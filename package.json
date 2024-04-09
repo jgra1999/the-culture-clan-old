@@ -31,5 +31,8 @@
     "tailwindcss-animate": "^1.0.7",
     "typescript": "^5.4.3",
     "zustand": "^4.5.2"
+  },
+  "devDependencies": {
+    "tailwindcss-animated": "^1.0.1"
   }
 }
