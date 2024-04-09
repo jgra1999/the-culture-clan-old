@@ -1,0 +1,35 @@
+---
+import Layout from '../layouts/Layout.astro'
+import astronaut from '../assets/astronaut.webp'
+---
+
+<Layout title='Pagina no encontrada'>
+	<main
+		class='bg-space404 grid grid-cols-1 md:grid-cols-2 items-center bg-cover bg-center w-full h-screen'
+	>
+		<div class='flex flex-col items-center w-full'>
+			<div>
+				<span class='text-gray-400 font-bold'>Error 404</span>
+				<h2 class='text-3xl sm:text-5xl md:text-6xl font-bold'>
+					Pagina No Encontrada
+				</h2>
+				<p class='font-medium xl:max-w-[90%] mt-4 text-left'>
+					Lo siento, no pudimos encontrar la página que buscas.
+				</p>
+				<a
+					href='/'
+					class='border-2 border-white py-2 w-36 text-sm opacity-50 active:opacity-100 lg:hover:opacity-100 text-center block mt-5'
+				>
+					Regresar al Home
+				</a>
+			</div>
+		</div>
+		<div class='hidden md:flex justify-center w-full'>
+			<img
+				src={astronaut.src}
+				alt=''
+				class='aspect-[422/450] h-[450px] animate-bounce animate-infinite animate-duration-[5000ms] animate-ease-in-out animate-normal'
+			/>
+		</div>
+	</main>
+</Layout>
