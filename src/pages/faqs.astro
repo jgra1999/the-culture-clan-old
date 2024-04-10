@@ -6,9 +6,9 @@ import { Image } from 'astro:assets'
 const table = {
 	thead: ['MEDIDA (centímetro)', 'S', 'M', 'L', 'XL'],
 	hombros: ['57', , '59', '60', '66'],
-	ancho: ['54', , '55', '60', '63'],
-	mangas: ['23', , '24', '26', '28'],
-	largo: ['69', , '72', '74', '76']
+	ancho: ['58', , '60', '62', '65'],
+	mangas: ['24', , '26', '28', '28'],
+	largo: ['75', , '76.5', '78', '80']
 }
 ---
 
@@ -247,10 +247,8 @@ const table = {
 						</div>
 
 						<div>
-							<Image
-								src={mockupSizes}
-								width={851}
-								height={1080}
+							<img
+								src={mockupSizes.src}
 								class='w-80 lg:max-w-[220px]'
 								alt='Ejemplo de medidas imagen'
 							/>

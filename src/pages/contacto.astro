@@ -54,15 +54,16 @@ import {
 		<div
 			class='flex flex-col xl:flex-row items-center xl:items-start justify-center gap-5 lg:gap-10 bg-darkGray w-full h-screen lg:pt-20'
 		>
-			<!-- TODO: ver si puedo optimizar por mi cuenta las imagenes y colocarlas -->
-			<Image
-				src={QrInstagram}
+			<img
+				src={QrInstagram.src}
+				class='w-[294px] h-[350px]'
 				alt='Instagram QR imagen'
-				width={294}
-				height={350}
-				quality={100}
 			/>
-			<Image src={QrWhatsapp} width={294} alt='WhatsApp QR imagen' height={350} />
+			<img
+				src={QrWhatsapp.src}
+				class='w-[294px] h-[350px]'
+				alt='WhatsApp QR imagen'
+			/>
 		</div>
 	</main>
 </Layout>
