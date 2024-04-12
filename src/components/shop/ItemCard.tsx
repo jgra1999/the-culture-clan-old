@@ -14,7 +14,7 @@ export default function ItemCard({ item }: Props) {
 
 	const transformCurrency = () => {
 		if (currency === 'CO') {
-			setCurrencyPrice(item.price * 3766)
+			setCurrencyPrice(Math.round(item.price) * 3800)
 		}
 	}
 
@@ -36,7 +36,7 @@ export default function ItemCard({ item }: Props) {
 						<p className='text-[#5e5e5e] text-xl font-bold item-name'>{item.name}</p>
 						{currency === 'CO' ? (
 							<span className='text-xl'>
-								{Math.ceil(currencyPrice).toLocaleString('es-CO')} COP
+								{currencyPrice.toLocaleString('es-CO')} COP
 							</span>
 						) : (
 							<span className='text-xl'>
