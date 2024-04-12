@@ -1,0 +1,35 @@
+---
+import AdminLayout from '@/layouts/AdminLayout.astro'
+import DataTable from '@/components/admin/ui/DataTable.tsx'
+
+const cookie = Astro.cookies.get('admin')
+
+if (cookie && cookie.value !== 'true') {
+	return Astro.redirect('/admin/login')
+}
+
+const headers = ['Productos', 'Colección', 'Likes', 'Precio']
+---
+
+<AdminLayout title='Productos'>
+	<div class='grid grid-cols-2 items-center'>
+		<a
+			href='/admin/productos/agregar-producto'
+			class='border border-white py-2 w-36 opacity-50 active:opacity-100 text-sm lg:hover:opacity-100 text-center rounded-lg'
+		>
+			Agregar Producto
+		</a>
+
+		<div>
+			<input
+				type='text'
+				placeholder='Buscar'
+				class='bg-transparent w-full border border-white py-2 px-3 text-sm opacity-50 focus:opacity-100 outline-none rounded-lg'
+			/>
+		</div>
+	</div>
+
+	<div class='relative overflow-x-auto shadow-md sm:rounded-lg my-8'>
+		<DataTable headers={headers} client:load />
+	</div>
+</AdminLayout>
