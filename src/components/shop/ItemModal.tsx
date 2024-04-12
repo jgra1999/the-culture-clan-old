@@ -96,7 +96,7 @@ export default function ItemModal({ children, item, price }: Props) {
 											<div>
 												{currency === 'CO' ? (
 													<span className='text-xl lg:text-2xl xl:text-4xl'>
-														{Math.ceil(price).toLocaleString('es-CO')} COP
+														{price.toLocaleString('es-CO')} COP
 													</span>
 												) : (
 													<span className='text-xl lg:text-2xl xl:text-4xl'>
@@ -121,7 +121,7 @@ export default function ItemModal({ children, item, price }: Props) {
 												Consultar Disponibilidad
 											</a>
 											<div className='flex items-end gap-x-4 divide-mediumGray'>
-												<LikeButton id={item.id} currentLikes={item.dislikes} />
+												<LikeButton id={item.id} currentLikes={item.likes} />
 
 												<DisLikeButton
 													id={item.id}
