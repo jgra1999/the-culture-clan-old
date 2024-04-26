@@ -16,6 +16,23 @@ const { title } = Astro.props
 		<meta charset='UTF-8' />
 		<meta name='description' content='Astro description' />
 		<meta name='viewport' content='width=device-width' />
+
+		<!-- SEO -->
+		<meta
+			name='description'
+			content='Marca de Ropa. ofrecemos una amplia variedad de diseños y estilos para hombres y mujeres.'
+		/>
+		<meta name='robots' content='index, follow' />
+		<link rel='canonical' href='https://thecultureclan.com' />
+
+		<!-- Open Graph -->
+		<meta property='og:type' content='website' />
+		<meta
+			property='og:image'
+			content='https://res.cloudinary.com/df8nnzf8t/image/upload/v1702386655/logo_mywb2f.jpg'
+		/>
+		<meta property='og:url' content='https://thecultureclan.com/' />
+
 		<!-- favicon -->
 		<link
 			rel='android-chrome'
@@ -46,7 +63,22 @@ const { title } = Astro.props
 		/>
 		<link rel='manifest' href='/site.webmanifest' />
 
-		<meta name='generator' content={Astro.generator} />
+		<!-- Google tag (gtag.js) -->
+		<script
+			type='text/partytown'
+			async
+			src='https://www.googletagmanager.com/gtag/js?id=G-9XN6FNH6J4'></script>
+		<script type='text/partytown'>
+			window.dataLayer = window.dataLayer || []
+			function gtag() {
+				dataLayer.push(arguments)
+			}
+			gtag('js', new Date())
+
+			gtag('config', 'G-9XN6FNH6J4')
+		</script>
+
+		<!-- <meta name='generator' content={Astro.generator} /> -->
 		<title>The Culture Clan - {title}</title>
 	</head>
 	<body>
