@@ -1,6 +1,11 @@
 ---
+export const prerender = false
+
 import AdminLayout from '@/layouts/AdminLayout.astro'
 import DataTable from '@/components/admin/ui/DataTable.tsx'
+import { supabase } from '@/supabase/client'
+import type { Product } from '@/types/products.ts'
+import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline'
 
 const cookie = Astro.cookies.get('admin')
 
@@ -9,6 +14,48 @@ if (cookie && cookie.value !== 'true') {
 }
 
 const headers = ['Productos', 'Colección', 'Likes', 'Precio']
+
+/* fetch products */
+let products: Product[] | null = []
+let page = 1
+let from = 0
+let to = 4
+let items_per_pages = 4
+
+try {
+	const { data, error } = await supabase.from('products').select()
+
+	if (error) console.log(error)
+	products = data
+} catch (error) {
+	return Response.json(
+		{
+			message: error
+		},
+		{
+			status: 500
+		}
+	)
+}
+
+/* prev and next button */
+
+/* const nextButton = document.getElementById('next-button')
+const prevButton = document.getElementById('prev-button')
+
+nextButton?.addEventListener('click', () => {
+	let newFrom = page + items_per_pages
+	let newTo = from + items_per_pages
+
+	if (page > 0) {
+		newFrom += 1
+		newTo += 1
+	}
+
+	from = newFrom
+	to = newTo
+	page = page + 1
+}) */
 ---
 
 <AdminLayout title='Productos'>
@@ -30,6 +77,25 @@ const headers = ['Productos', 'Colección', 'Likes', 'Precio']
 	</div>
 
 	<div class='relative overflow-x-auto shadow-md sm:rounded-lg my-8'>
-		<DataTable headers={headers} client:load />
+		<DataTable headers={headers} client:load data={products} />
+		<div class='flex justify-between mt-5'>
+			<button
+				class='flex items-center p-4 opacity-50 hover:opacity-100'
+				disabled={page === 1}
+				id='prev-button'
+			>
+				<ChevronLeftIcon className='w-5' />
+				Anterior
+			</button>
+
+			<button
+				class='flex items-center p-4 opacity-50 hover:opacity-100'
+				disabled={products && products.length < 5}
+				id='next-button'
+			>
+				Siguiente
+				<ChevronRightIcon className='w-5' />
+			</button>
+		</div>
 	</div>
 </AdminLayout>
