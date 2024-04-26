@@ -1,0 +1,26 @@
+---
+export const prerender = false
+
+import TitlePages from '@/components/ui/TitlePages.astro'
+import GoBackButton from '@/components/ui/GoBackButton.astro'
+import AdminLayout from '@/layouts/AdminLayout.astro'
+import ProductsForm from '@/components/admin/forms/ProductsForm'
+
+const { id } = Astro.params
+
+if (!id) {
+	return Astro.redirect('/404')
+}
+---
+
+<AdminLayout title='Actualizar Producto'>
+	<GoBackButton />
+	<div class='flex flex-col items-center'>
+		<TitlePages title='Actualizar Producto' />
+		<div
+			class='flex flex-col gap-y-8 justify-center my-5 divide-mediumGray w-[90%] sm:min-w-0 max-w-[600px] bg-darkGray rounded-lg py-6 px-8'
+		>
+			<ProductsForm client:load id={id ? id : ''} />
+		</div>
+	</div>
+</AdminLayout>

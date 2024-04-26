@@ -25,7 +25,7 @@ export default function ProductsForm({ id }: { id?: string }) {
 	const [file1, setFile1] = useState<File | null>(null)
 	const [file2, setFile2] = useState<File | null>(null)
 
-	/* if (id) {
+	if (id) {
 		const getProductData = async () => {
 			const { data, error } = await supabase
 				.from('products')
@@ -34,13 +34,16 @@ export default function ProductsForm({ id }: { id?: string }) {
 
 			if (error) console.log(error)
 
-			if (data) setProduct(data[0])
+			if (data) {
+				setProduct(data[0])
+				console.log(data)
+			}
 		}
 
 		useEffect(() => {
 			getProductData()
 		}, [])
-	} */
+	}
 
 	const handleChange = (
 		e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
@@ -50,6 +53,7 @@ export default function ProductsForm({ id }: { id?: string }) {
 	}
 
 	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+		e.preventDefault()
 		const imageData = new FormData()
 
 		const { name, collection, price, description, image_url_1, image_url_2 } =
@@ -85,30 +89,37 @@ export default function ProductsForm({ id }: { id?: string }) {
 			}
 		}
 
+		const img_url_1 = String(imageData.get('image_url_1'))
+		const img_url_2 = String(imageData.get('image_url_2'))
+
 		if (id) {
 			const { data, error } = await supabase
 				.from('products')
 				.update({
 					collection,
 					name,
-					price: +price,
-					image_url_1,
-					image_url_2,
+					price,
+					image_url_1: imageData.get('image_url_1') ? img_url_1 : image_url_1,
+					image_url_2: imageData.get('image_url_2') ? img_url_2 : image_url_2,
 					description,
 					slug: slugify(name)
 				})
 				.eq('id', id)
 
-			if (error) toast(<ErrorToast message={error?.message} />)
-			toast(<SuccessToast message='Producto editado' />)
+			if (error) {
+				toast.custom(<ErrorToast message={error?.message} />)
+			} else {
+				toast.custom(<SuccessToast message='Producto editado' />)
+				window.location.replace('/admin/productos')
+			}
 		} else {
 			const { data, error } = await supabase.from('products').insert([
 				{
 					collection,
 					name,
 					price,
-					image_url_1: String(imageData.get('image_url_1')),
-					image_url_2: String(imageData.get('image_url_2')),
+					image_url_1: img_url_1,
+					image_url_2: img_url_2,
 					description,
 					slug: slugify(name)
 				}
@@ -117,6 +128,7 @@ export default function ProductsForm({ id }: { id?: string }) {
 				toast.custom(<ErrorToast message={error.message} />)
 			} else {
 				toast.custom(<SuccessToast message='Producto agregado' />)
+				window.location.replace('/admin/productos')
 			}
 		}
 	}
@@ -197,7 +209,7 @@ export default function ProductsForm({ id }: { id?: string }) {
 							type='text'
 							name='name'
 							onChange={handleChange}
-							placeholder={product ? product.name : ''}
+							value={product ? product.name : ''}
 							className='bg-[#171717] outline-none opacity-50 focus:opacity-100 border border-mediumGray py-2 px-3 rounded-lg'
 						/>
 					</div>
@@ -210,6 +222,7 @@ export default function ProductsForm({ id }: { id?: string }) {
 							className='bg-[#171717] outline-none opacity-50 focus:opacity-100 border border-mediumGray py-2.5 px-3 rounded-lg'
 							name='collection'
 							onChange={handleChange}
+							value={product ? product.collection : ''}
 						>
 							<option value=''>Seleccionar</option>
 							<option value='New Culture'>New Culture</option>
@@ -227,7 +240,7 @@ export default function ProductsForm({ id }: { id?: string }) {
 							step={0.01}
 							name='price'
 							onChange={handleChange}
-							placeholder={product ? product.price.toString() : ''}
+							value={product ? product.price : ''}
 							className='bg-[#171717] outline-none opacity-50 focus:opacity-100 border border-mediumGray py-2 px-3 rounded-lg'
 						/>
 					</div>
@@ -238,6 +251,7 @@ export default function ProductsForm({ id }: { id?: string }) {
 						<input
 							type='text'
 							placeholder={product ? product.slug : ''}
+							readOnly
 							onChange={handleChange}
 							className='bg-[#171717] outline-none opacity-50 focus:opacity-100 border border-mediumGray py-2 px-3 rounded-lg'
 						/>
@@ -249,7 +263,7 @@ export default function ProductsForm({ id }: { id?: string }) {
 						</label>
 						<textarea
 							rows={5}
-							placeholder={product ? product.description : ''}
+							value={product ? product.description : ''}
 							name='description'
 							onChange={handleChange}
 							className='bg-[#171717] outline-none opacity-50 focus:opacity-100 border border-mediumGray py-2 px-3 rounded-lg resize-none'
