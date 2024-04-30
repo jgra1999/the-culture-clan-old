@@ -5,8 +5,10 @@ import type { Database } from '@/types/supabase'
 import ItemCard from './ItemCard'
 import Loader from '../ui/Loader'
 import CollectionDropDown from '../shop/CollectionDropDown'
-import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline'
 import CurrencyDropDown from './CurrencyDropDown'
+import OrderByDropDown from './OrderByDropDown'
+/* icons */
+import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline'
 
 export default function ItemsList() {
 	const [items, setItems] = useState<
@@ -43,6 +45,10 @@ export default function ItemsList() {
 				behavior: 'smooth'
 			})
 		}
+	}
+
+	const handleOrderByFilter = (e: any) => {
+		setOrderBy(e.target.value)
 	}
 
 	const handleCollectionFilter = (e: any) => {
@@ -91,22 +97,7 @@ export default function ItemsList() {
 		<>
 			<div className='flex justify-between items-center mt-5 '>
 				<div className='text-lightGray flex justify-between sm:justify-normal items-center w-full text-sm font-medium gap-x-4'>
-					<button
-						onClick={() => setOrderBy('created_at')}
-						className={`text-xs md:text-base ${
-							orderBy === 'created_at' ? 'opacity-100' : 'opacity-50'
-						}`}
-					>
-						Más Recientes
-					</button>
-					<button
-						onClick={() => setOrderBy('likes')}
-						className={`text-xs md:text-base ${
-							orderBy === 'likes' ? 'opacity-100' : 'opacity-50'
-						}`}
-					>
-						Más Populares
-					</button>
+					<OrderByDropDown setOrderBy={handleOrderByFilter} />
 					<div>
 						<CollectionDropDown setCollection={handleCollectionFilter} />
 					</div>
