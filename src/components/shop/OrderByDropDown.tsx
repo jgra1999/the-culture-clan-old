@@ -25,10 +25,10 @@ export default function OrderByDropDown({
 					leaveFrom='transform opacity-100 scale-100'
 					leaveTo='transform opacity-0 scale-95'
 				>
-					<Menu.Items className='flex flex-col items-start absolute right-0 mt-2 w-56 bg-darkGray focus:outline-none z-10'>
+					<Menu.Items className='flex flex-col gap-y-2 items-start absolute -right-4 mt-2 py-2 pl-3 w-32 bg-darkGray focus:outline-none z-10'>
 						<Menu.Item>
 							<button
-								className='opacity-70 hover:opacity-100 px-4 py-2'
+								className='opacity-70 hover:opacity-100'
 								onClick={setOrderBy}
 								value='created_at'
 							>
@@ -37,7 +37,7 @@ export default function OrderByDropDown({
 						</Menu.Item>
 						<Menu.Item>
 							<button
-								className='opacity-70 hover:opacity-100 px-4 py-2'
+								className='opacity-70 hover:opacity-100'
 								onClick={setOrderBy}
 								value='likes'
 							>
