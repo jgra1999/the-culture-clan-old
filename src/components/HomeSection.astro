@@ -10,12 +10,10 @@ const { srcImage, title } = Astro.props
 <section class='relative'>
 	<img
 		src={srcImage}
-		class='aspect-[1528/796]'
+		class='w-[1528px] aspect-[1528/796]'
 		alt={`Imagen
           de
           seccion`}
-		width={1528}
-		height={796}
 	/>
 	<div
 		class='flex flex-col justify-center items-center py-20 gap-y-3 md:absolute inset-0'
@@ -36,10 +34,5 @@ const { srcImage, title } = Astro.props
 	h2 {
 		font-family: 'Bebas Neue', sans-serif;
 		@apply text-white tracking-[1px] text-7xl;
-	}
-
-	@font-face {
-		font-family: 'Bebas Neue';
-		src: url('/fonts/BebasNeue-Regular.ttf') format('ttf');
 	}
 </style>
