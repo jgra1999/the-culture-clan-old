@@ -1,0 +1,118 @@
+---
+import Logo from '@/components/icons/Logo.astro'
+import { WhatsappIcon } from '@/components/icons/icons'
+import '@/styles/globals.css'
+import { QuestionMarkCircleIcon, ShoppingBagIcon } from '@heroicons/react/24/outline'
+---
+
+<!doctype html>
+<html lang='es'>
+	<head>
+		<meta charset='UTF-8' />
+		<meta name='viewport' content='width=device-width' />
+
+		<!-- Open Graph -->
+		<meta property='og:type' content='website' />
+		<meta
+			property='og:image'
+			content='https://res.cloudinary.com/df8nnzf8t/image/upload/v1702386655/logo_mywb2f.jpg'
+		/>
+		<meta property='og:url' content='https://thecultureclan.com/' />
+
+		<!-- favicon -->
+		<link
+			rel='android-chrome'
+			sizes='512x512'
+			href='/favicon/android-chrome-512x512.png'
+		/>
+		<link
+			rel='android-chrome'
+			sizes='192x192'
+			href='/favicon/android-chrome-192x192.png'
+		/>
+		<link
+			rel='apple-touch-icon'
+			sizes='180x180'
+			href='/favicon/apple-touch-icon.png'
+		/>
+		<link
+			rel='icon'
+			type='image/png'
+			sizes='32x32'
+			href='/favicon/favicon-32x32.png'
+		/>
+		<link
+			rel='icon'
+			type='image/png'
+			sizes='16x16'
+			href='/favicon/favicon-16x16.png'
+		/>
+		<link rel='manifest' href='/site.webmanifest' />
+
+		<!-- Google tag (gtag.js) -->
+		<script
+			type='text/partytown'
+			async
+			src='https://www.googletagmanager.com/gtag/js?id=G-9XN6FNH6J4'></script>
+		<script type='text/partytown'>
+			window.dataLayer = window.dataLayer || []
+			function gtag() {
+				dataLayer.push(arguments)
+			}
+			gtag('js', new Date())
+
+			gtag('config', 'G-9XN6FNH6J4')
+		</script>
+
+		<!-- <meta name='generator' content={Astro.generator} /> -->
+		<title>The Culture Clan - Linktree</title>
+	</head>
+	<body>
+		<main class='relative'>
+			<img
+				src='/heros/linktree-bg.webp'
+				alt=''
+				class='h-screen w-full brightness-[.3]'
+			/>
+			<div
+				class='container w-3/4 flex flex-col items-center gap-y-5 absolute z-10 inset-0 top-32'
+			>
+				<div class='mb-5 text-center'>
+					<Logo />
+					<span class='text-sm'>@th3cultureclan </span>
+				</div>
+
+				<a
+					href='https://wa.link/p3qnlf'
+					class='flex justify-center gap-x-1 items-center border-2 border-white py-2 text-lg w-64 text-center'
+				>
+					<span>Whatsapp</span>
+					<WhatsappIcon styles='w-5' />
+				</a>
+				<a
+					href='/tienda'
+					class='flex justify-center gap-x-1 items-center border-2 border-white py-2 text-lg w-64 text-center'
+				>
+					<span>Catálogo</span>
+					<ShoppingBagIcon className='w-5' />
+				</a>
+				<a
+					href='/faqs'
+					class='flex justify-center gap-x-1 items-center border-2 border-white py-2 text-lg w-64 text-center'
+				>
+					<span>FAQ'S</span>
+					<QuestionMarkCircleIcon className='w-5' />
+				</a>
+				<div class='mt-40'>
+					<p class='text-sm opacity-60'>La marca mas arrecha de Venezuela 🔥</p>
+				</div>
+			</div>
+		</main>
+
+		<style>
+			:root {
+				color-scheme: dark light;
+			}
+		</style>
+	</body>
+</html>
