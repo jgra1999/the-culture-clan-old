@@ -2,11 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+/* :root {
+	color-scheme: light dark;
+} */
+
 body {
 	@apply bg-[#141414] 
     text-[#F6F6F6];
 
 	font-family: 'Roboto', sans-serif;
+}
+
+@font-face {
+	font-family: 'Bebas Neue';
+	src: url('/fonts/BebasNeue-Regular.ttf') format('ttf');
 }
 
 .social-icon {
