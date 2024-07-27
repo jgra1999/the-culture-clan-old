@@ -47,27 +47,18 @@ export default function CollectionDropDown({
 						<button
 							className='opacity-70 hover:opacity-100'
 							onClick={setCollection}
-							value='Rap Culture'
+							value='Music Culture'
 						>
-							Rap Culture
+							Music Culture
 						</button>
 					</Menu.Item>
 					<Menu.Item>
 						<button
 							className='opacity-70 hover:opacity-100'
 							onClick={setCollection}
-							value='Pop New Culture'
+							value='Fit Culture'
 						>
-							Pop Culture
-						</button>
-					</Menu.Item>
-					<Menu.Item>
-						<button
-							className='opacity-70 hover:opacity-100'
-							onClick={setCollection}
-							value='Urban Culture'
-						>
-							Urban Culture
+							Fit Culture
 						</button>
 					</Menu.Item>
 				</Menu.Items>
