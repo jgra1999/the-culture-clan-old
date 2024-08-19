@@ -1,0 +1,33 @@
+---
+type Props = {
+	name: string
+	growth?: number
+	tableUrl: string
+	stats: string
+}
+
+const { name, growth = 0, tableUrl, stats } = Astro.props
+---
+
+<div class='bg-darkGray p-4 rounded-lg space-y-4'>
+	<div class='flex justify-between items-center'>
+		<h5 class='text-grayText'>{name}</h5>
+		{
+			growth !== 0 ? (
+				<span
+					class={`font-medium ${growth > 0 ? 'text-green-600' : 'text-red-600'}`}
+				>
+					{growth > 0 ? `+${growth}%` : `${growth}%`}
+				</span>
+			) : (
+				''
+			)
+		}
+	</div>
+	<div class='flex flex-col gap-y-5'>
+		<span class='text-5xl'>{stats}</span>
+		<a class='text-white text-sm opacity-50 hover:opacity-100' href={tableUrl}>
+			Ver tabla
+		</a>
+	</div>
+</div>
