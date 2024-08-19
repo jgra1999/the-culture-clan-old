@@ -11,7 +11,7 @@ import {
 
 import SideMenuOptions from './SideMenuOptions'
 
-export default function SideMenu() {
+export default function SideMenu({ children }: { children: React.ReactNode }) {
 	const [open, setOpen] = useState(false)
 
 	return (
@@ -67,25 +67,7 @@ export default function SideMenu() {
 												</div>
 
 												<div className='mt-16'>
-													<div className='flow-root'>
-														<ul role='list' className='-my-6 space-y-2'>
-															<SideMenuOptions name='Home' link='/'>
-																<HomeIcon className='flex-shrink-0 w-6 h-6' />
-															</SideMenuOptions>
-															<SideMenuOptions name='Tienda' link='/tienda'>
-																<ShoppingBagIcon className='flex-shrink-0 w-6 h-6' />
-															</SideMenuOptions>
-															<SideMenuOptions name='FAQ' link='/'>
-																<WalletIcon className='flex-shrink-0 w-6 h-6' />
-															</SideMenuOptions>
-															<SideMenuOptions name='Contacto' link='/contacto'>
-																<DevicePhoneMobileIcon className='flex-shrink-0 w-6 h-6' />
-															</SideMenuOptions>
-															{/* <SideMenuOptions name='Iniciar sesión' link='/login'>
-																<Login />
-															</SideMenuOptions> */}
-														</ul>
-													</div>
+													<div className='flow-root'>{children}</div>
 												</div>
 											</div>
 										</div>
