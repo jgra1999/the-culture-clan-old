@@ -226,9 +226,8 @@ export default function ProductsForm({ id }: { id?: string }) {
 						>
 							<option value=''>Seleccionar</option>
 							<option value='New Culture'>New Culture</option>
-							<option value='Rap Culture'>Rap Culture</option>
-							<option value='Pop Culture'>Pop Culture</option>
-							<option value='Urban Culture'>Urban Culture</option>
+							<option value='Music Culture'>Music Culture</option>
+							<option value='Fit Culture'>Fit Culture</option>
 						</select>
 					</div>
 					<div className='flex flex-col gap-y-2 text-left relative'>
