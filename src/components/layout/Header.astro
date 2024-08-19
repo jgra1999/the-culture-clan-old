@@ -3,12 +3,39 @@
 import Logo from '../icons/Logo.astro'
 import TCCIcon from '../icons/TCCIcon.astro'
 import SideMenu from './SideMenu.tsx'
+import SideMenuOptions from './SideMenuOptions'
+import {
+	HomeIcon,
+	DevicePhoneMobileIcon,
+	ShoppingBagIcon,
+	WalletIcon
+} from '@heroicons/react/20/solid'
 ---
 
 <header class='absolute top-0 w-full z-10 pt-5'>
 	{/* mobile navbar */}
 	<div class='p-4 flex justify-between items-center lg:hidden'>
-		<SideMenu client:idle transition:persist />
+		<SideMenu client:idle transition:persist>
+			<ul role='list' class='-my-6 space-y-2'>
+				<SideMenuOptions name='Home' link='/'>
+					<HomeIcon className='flex-shrink-0 w-6 h-6' />
+				</SideMenuOptions>
+				<SideMenuOptions name='Tienda' link='/tienda'>
+					<ShoppingBagIcon className='flex-shrink-0 w-6 h-6' />
+				</SideMenuOptions>
+				<SideMenuOptions name='FAQ' link='/'>
+					<WalletIcon className='flex-shrink-0 w-6 h-6' />
+				</SideMenuOptions>
+				<SideMenuOptions name='Contacto' link='/contacto'>
+					<DevicePhoneMobileIcon className='flex-shrink-0 w-6 h-6' />
+				</SideMenuOptions>
+				{
+					/* <SideMenuOptions name='Iniciar sesión' link='/login'>
+					<Login />
+				</SideMenuOptions> */
+				}
+			</ul>
+		</SideMenu>
 		<a href='/'>
 			<TCCIcon />
 		</a>
