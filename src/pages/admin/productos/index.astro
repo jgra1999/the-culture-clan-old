@@ -2,21 +2,17 @@
 export const prerender = false
 
 import AdminLayout from '@/layouts/AdminLayout.astro'
-import DataTable from '@/components/admin/ui/DataTable.tsx'
-import { supabase } from '@/supabase/client'
-import type { Product } from '@/types/products.ts'
+import { ProductsTable } from '@/components/admin/tables/ProductsTable.tsx'
 
 const cookie = Astro.cookies.get('admin')
 
 if (cookie && cookie.value !== 'true') {
 	return Astro.redirect('/admin/login')
 }
-
-const headers = ['Productos', 'Colección', 'Likes', 'Precio']
 ---
 
 <AdminLayout title='Productos'>
 	<div class='overflow-x-auto shadow-md sm:rounded-lg my-8'>
-		<DataTable headers={headers} client:load />
+		<ProductsTable client:load />
 	</div>
 </AdminLayout>

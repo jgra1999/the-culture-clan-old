@@ -1,7 +1,20 @@
 ---
+export const prerender = false
+
 import AdminLayout from '@/layouts/AdminLayout.astro'
+import { DataTable } from '@/components/admin/tables/DataTable'
+
+const cookie = Astro.cookies.get('admin')
+
+if (cookie && cookie.value !== 'true') {
+	return Astro.redirect('/admin/login')
+}
+
+const headers = ['Descripción', 'Cantidad', 'Fecha', 'Accion']
 ---
 
 <AdminLayout title='Ingresos'>
-	<h2>Ingresos</h2>
+	<div class='overflow-x-auto shadow-md sm:rounded-lg my-8'>
+		<DataTable dbTableName='income' client:load />
+	</div>
 </AdminLayout>
