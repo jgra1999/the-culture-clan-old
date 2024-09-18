@@ -15,8 +15,10 @@ export function AdminLoginForm() {
 
 	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault()
-		const email = e.currentTarget[0].value
-		const password = e.currentTarget[1].value
+		// const email = e.currentTarget[0].value
+		// const password = e.currentTarget[1].value
+		const email: string = ''
+		const password = ''
 
 		if (email === 'jgra11.2010@gmail.com') {
 			const { data, error } = await supabase.auth.signInWithPassword({

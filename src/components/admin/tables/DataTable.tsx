@@ -3,7 +3,6 @@ import { TrashIcon, EyeIcon, PencilIcon } from '@heroicons/react/20/solid'
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline'
 import { useEffect, useState } from 'react'
 import { SearchInput } from '../ui/SearchInput'
-import type { AccountData } from '@/types'
 
 const headers = ['Descripción', 'Cantidad', 'Fecha', 'Accion']
 
